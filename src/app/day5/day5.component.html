@@ -1,0 +1,36 @@
+<!-- dùng ngIf chuyền vào ng-template -->
+<p > tuổi của bạn là {{age}}</p>
+<span *ngIf="age < 18; then child else adults"></span>
+<button (click)="down()">-</button>
+<button (click)="up()">+</button>
+<ng-template #child>
+    <p>bạn vẫn là trẻ con</p>
+</ng-template>
+<ng-template #adults>
+    <p>bạn là người lớn</p>
+</ng-template>
+<!-- dùng ngTemplateOutlet để hiển thị nhiều ng-template -->
+<h5 class="mt-4">dùng ngTemplateOutlet để hiển thị nhiều ng-template</h5>
+    <p>
+        tuổi của bạn là <ng-container [ngTemplateOutlet]="ages"></ng-container>.
+    </p>
+    <p>
+        năm bạn <ng-container [ngTemplateOutlet]="ages"></ng-container> đúng không ?
+    </p>
+    <p>
+        đến năm nay tôi : <ng-container [ngTemplateOutlet]="ages"></ng-container>.
+    </p>
+
+
+<ng-template #ages>
+    <span class="badge badge-primary">{{ age }}</span> tuổi
+</ng-template>
+<!-- Truyền được template từ parent component vào child component qua ng-content -->
+<childDay5 [ages]="age">
+     <div class="age" >{{ age }}</div>
+     <div class="name"> 
+        aaaaaaaaaaaaaaaa
+     </div>
+</childDay5>
+
+

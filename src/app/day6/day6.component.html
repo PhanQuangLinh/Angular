@@ -1,0 +1,12 @@
+<p>  sử dụng Input, Output để truyền data giữa các component</p>
+<br/>
+<input [(ngModel)]="input">
+<childDay6 [number]="input" (changeNumer)="change($event)" ></childDay6>
+<br/>
+<p>Unrelated Components: Chia sẻ dữ liệu thông qua Service</p>
+<br/>
+<input [(ngModel)]="mess" (ngModelChange)="dataChanged($event)">
+<p>dùng BehaviorSubject để đổ dữ liệu</p>
+<child2></child2>
+<p>dùng Subject để đổ dữ liệu</p>
+<child3></child3>
