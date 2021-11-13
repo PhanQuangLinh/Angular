@@ -1,0 +1,49 @@
+
+<div class="container">
+    <button class="btn btn-primary" (click)="Forms1()">Reactive Forms</button>
+    <button class="btn btn-primary" (click)="Forms2()">Template Driven Form</button>
+    
+   
+    <form *ngIf="isForm1"  action="" [formGroup]="logForm" (ngSubmit)="onSubmit(logForm.value)">
+           <h4 class="text-center my-4">Reactive Forms</h4>
+        <div class="form-group">
+            <label for="exampleInputName1">name {{ Name?.errors| json }}</label>
+            <input type="text" class="form-control" id="exampleInputName1"  placeholder="Name" formControlName="Name">
+            <div *ngIf="Name?.invalid && Name?.touched ">
+              <p *ngIf="Name?.errors?.required" class="text-danger">hãy điền tên</p>
+              <p *ngIf="Name?.errors?.minlength" class="text-danger">họ và tên có ít nhất 6 kí tự </p>
+              <p *ngIf="Name?.errors?.pattern" class="text-danger">trong tên có kí tự đặc biệt </p>
+            </div>
+          </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email </label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" formControlName="Email">
+            <div *ngIf="Email?.invalid && Email?.touched ">
+              <p *ngIf="Email?.errors?.required" class="text-danger">hãy điền Email</p>
+              <p *ngIf="Email?.errors?.email && (Email?.touched || Email?.dirty)" class="text-danger">đây không phải Email </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="Password">
+            <div *ngIf="Password?.invalid && Password?.touched ">
+              <p *ngIf="Password?.errors?.required" class="text-danger">hãy điền Password</p>
+              <p *ngIf="Password?.errors?.minlength" class="text-danger">Password có ít nhất 6 kí tự </p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputRepassword">Repassword {{Repassword?.errors| json}} </label>
+            <input type="password" class="form-control" id="exampleInputRepassword1" placeholder="Repassword" formControlName="Repassword">
+            <div *ngIf="Repassword?.invalid && Repassword?.touched">
+              <p *ngIf="Repassword?.errors?.required" class="text-danger">hãy điền Repassword</p>      
+            </div>
+            <p *ngIf="logForm?.errors?.passwordnotmatch && !Repassword?.errors?.required" class="text-danger">nhập lại mật khẩu</p>
+          </div>
+          <!-- nếu chưa đúng form không cho submit -->
+          <button type="submit" class="btn btn-primary" [disabled]="!logForm.valid">Submit</button>
+    </form>
+    <div class="container">
+      <form2 *ngIf="isForm2"></form2>
+    </div>
+   
+</div>

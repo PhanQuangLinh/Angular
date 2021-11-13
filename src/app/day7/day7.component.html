@@ -1,0 +1,24 @@
+<p>day7 works!</p>
+<br/>
+
+<button (click)="changeHellocomp()"> add for child1 </button>
+<child1 #child1></child1>
+<child2 #child2></child2>
+
+<!-- <input type="text" #nameRef > -->
+
+
+<child3 #child3 *ngIf="isShowChild"></child3>
+<!-- <child3 #child3></child3>
+<child3 #child3></child3>
+<child3 #child3></child3>
+<child3 #child3></child3> -->
+
+
+
+<button (click)="isShowChild = !isShowChild">click me</button>
+<button (click)="runChildFunc()">run child3 func</button>
+
+<child1 #child></child1>
+<child2 #child></child2>
+<child3 #child></child3>

@@ -10,10 +10,13 @@
     <p>bạn là người lớn</p>
 </ng-template>
 <!-- dùng ngTemplateOutlet để hiển thị nhiều ng-template -->
+
 <h5 class="mt-4">dùng ngTemplateOutlet để hiển thị nhiều ng-template</h5>
     <p>
-        tuổi của bạn là <ng-container [ngTemplateOutlet]="ages"></ng-container>.
+        tuổi của bạn là <ng-container [ngTemplateOutlet]="ages"  
+        [ngTemplateOutletContext]="{ label: 'Click here' }"></ng-container>
     </p>
+
     <p>
         năm bạn <ng-container [ngTemplateOutlet]="ages"></ng-container> đúng không ?
     </p>
@@ -22,15 +25,17 @@
     </p>
 
 
-<ng-template #ages>
+<ng-template #ages let-label="label">
     <span class="badge badge-primary">{{ age }}</span> tuổi
+    {{ label }}
 </ng-template>
+
 <!-- Truyền được template từ parent component vào child component qua ng-content -->
-<childDay5 [ages]="age">
+<!-- <childDay5 [ages]="age">
      <div class="age" >{{ age }}</div>
      <div class="name"> 
         aaaaaaaaaaaaaaaa
      </div>
-</childDay5>
+</childDay5> -->
 
 

@@ -1,0 +1,12 @@
+<p>day9  Life cycle hooks !</p>
+
+<button (click)="onClick()">{{
+    checked ? 'show' : 'hide'
+    }} </button>
+    <button (click)="click()">number++</button>
+
+    <input type="text" [(ngModel)]="input1" >
+    
+    <input type="text" [(ngModel)]="input2">
+   
+<childDay9 *ngIf="checked" [input1]="input1" [input2]="input2" [number]="number" [object]="object" [arr]="arr"></childDay9>

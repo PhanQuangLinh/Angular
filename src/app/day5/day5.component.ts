@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Day5Component implements OnInit {
   age: number = 18;
   constructor() { }
-
+  label: string = '' ;
   ngOnInit(): void {
   }
   down(){
